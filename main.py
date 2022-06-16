@@ -5,10 +5,20 @@ class Main:
 
     def __init__(self):
 
+        self.done = False
+
         # creates a new instance of data reader, which deals with the .csv file
         self.dr = DataReader()
         # self.draw_chart()
+
+        while self.done == False:
+            self.operate()
+
         
+    def operate(self):
+
+        pass
+
 
     def draw_chart(self):
 
