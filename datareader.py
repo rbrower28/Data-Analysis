@@ -84,5 +84,53 @@ class DataReader:
         print(f"\n    Average listing price in this state -- ${average}")
 
 
+    # def p(self, low, high):
+        
+    #     data = self.data.sort_values("price")
+    #     lowest = data.nsmallest(n=1, columns=["price"])
+    #     highest = data.nlargest(n=1, columns=["price"])
+
+    #     print(price, lowest["price"].to_string(index=False), highest["price"].to_string(index=False))
+
+    #     print(float(lowest["price"].to_string(index=False)) + float(highest["price"].to_string(index=False)))
+        
+    #     closest = self.find_price(price, lowest["price"], highest["price"], data)
+
+
     def get_by_price(self, price):
-        pass
+
+        print("\n    Slightly higher:\n")
+
+        upper_df = self.data[self.data["price"] > price]
+        upper_cut = upper_df.nsmallest(n=20, columns=["price"])
+        upper_cut["price"] = upper_cut["price"].apply(self.add_commas)
+        upper_cut["house_size"] = upper_cut["house_size"].apply(self.add_commas)
+        upper_cut = upper_cut[::-1]
+        print(upper_cut[["price", "bed", "bath", 
+                        "acre_lot", "full_address", 
+                        "house_size"]].to_string(index=False))
+
+        print("\n    Slightly lower\n")
+
+        lower_df = self.data[self.data["price"] < price]
+        lower_cut = lower_df.nlargest(n=20, columns=["price"])
+        lower_cut["price"] = lower_cut["price"].apply(self.add_commas)
+        lower_cut["house_size"] = lower_cut["house_size"].apply(self.add_commas)
+        print(lower_cut[["price", "bed", "bath", 
+                        "acre_lot", "full_address", 
+                        "house_size"]].to_string(index=False))
+
+
+
+    # def _find_price(self, goal, min, max, data):
+
+    #     if max >= 0:
+    
+    #         middle = int((max - min) / 2) + min
+
+    #         if max - min < 2:
+    #             return min
+    #         else:
+    #             self._find_price(sorted_list, min, middle - 1, data)
+    #             self._find_price(sorted_list, middle + 1, max, data)
+

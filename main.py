@@ -68,7 +68,7 @@ class Main:
 
     def req_by_price(self):
         
-        sample = input("Enter a price between 0 and 60 million: ")
+        sample = int(input("Enter a price between 0 and 60 million: "))
 
         while sample < 0 or sample > 60000000:
             sample = int(input("Please try again. "))
