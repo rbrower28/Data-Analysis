@@ -9,7 +9,7 @@ tools so that you can answer some of yours!
 It's very simple. Download or fork this repository, and if you have
 a python interpreter installed you're all ready to go!
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/rYu4FlB1YAs)
 
 # Data Analysis Results
 
