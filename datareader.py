@@ -3,7 +3,6 @@ import pandas as pd
 
 class DataReader:
 
-
     def __init__(self):
         # Initializes the data and the test data
         self.db_name = "realtor-data.csv"
@@ -131,7 +130,7 @@ class DataReader:
                         "acre_lot", "full_address", 
                         "house_size"]].to_string(index=False))
 
-        print("\n    Slightly lower\n")
+        print("\n    Slightly lower:\n")
 
         # Creates a new data frame below the specified price
         lower_df = self.data[self.data["price"] < price]
